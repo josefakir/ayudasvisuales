@@ -1,0 +1,45 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Sync\"><param name=\"ios-package\" value=\"ContentSync\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Zip\"><param name=\"ios-package\" value=\"ContentSync\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.graphicsandcode.ayudasvisuales"
+        },
+        "phonegap-plugin-contentsync": {
+            "PACKAGE_NAME": "com.graphicsandcode.ayudasvisuales"
+        }
+    },
+    "dependent_plugins": {},
+    "modules": [
+        {
+            "file": "plugins/phonegap-plugin-contentsync/www/index.js",
+            "id": "phonegap-plugin-contentsync.ContentSync",
+            "pluginId": "phonegap-plugin-contentsync",
+            "clobbers": [
+                "window.ContentSync",
+                "window.Zip",
+                "window.zip"
+            ]
+        }
+    ]
+}
