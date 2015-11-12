@@ -47,19 +47,16 @@ var app = {
         console.log('Received Event: ' + id);
 
 
-        var sync = ContentSync.sync({ src: 'http://graphicsandcode.com/ayudasvisuales/testayuda.zip', id: 'testayuda' });
+        var sync = ContentSync.sync({ src: 'http://graphicsandcode.com/ayudasvisuales/testayuda.zip', id: 'testayuda' , type : 'local'});
 
         sync.on('progress', function(data) {
             // data.progress
         });
 
         sync.on('complete', function(data) {
-            imageDiv = document.querySelector("#images");
-            for(x=1;x<=7;x++) {
-                var imageUrl = "file://" + data.localPath + "/kitten"+x+".jpg";
-                s += "<a href='"+imageUrl+"'>IR</a><br/>";
-            }
-            imageDiv.innerHTML = s;
+            alert(data.localPath+"/testayuda/index.html");
+            alert(data.cached);
+            window.location = data.localPath+"/testayuda/index.html";
         });
 
         sync.on('error', function(e) {
